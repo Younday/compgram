@@ -149,7 +149,7 @@ def get_stack_elements(stack, data):
     extracts top 3 elements from data from stack, e.g.
     if data is 'words' then returns up to top 3 words
     if data is 'tags' returns top 3 POS tags
-    
+
     returns '' if elements is not available
     """
     depth = len(stack)
@@ -230,12 +230,12 @@ def extract_features(words, lemmas, tags, current_position_buffer, n, stack, par
     # to focus the learning algorithm on the most useful aspects of decision
     # making at each point in the parsing process.
     #
-    # The focus of feature extraction in transition-based parsing is 
+    # The focus of feature extraction in transition-based parsing is
     # typically the top of the stack, the words near the front of
     # the buffer and the set of dependency relations already created.
     #
     # It is advisable to read the section 'Features' in Chapter 14.4 J&M 3rd edition!
-    
+
     # 'features' is our list of features were we want to add additional features
     # by instantiating features from the feature templates
     # we always add features with a value of 1!
@@ -302,9 +302,13 @@ def extract_features(words, lemmas, tags, current_position_buffer, n, stack, par
 
     # add word unigram features (from buffer)
     if b_w0: features.append(('b_w0=%s' % (b_w0), 1))
-    
+    if b_w1: features.append(('b_w1=%s' % (b_w1), 1))
+    if b_w0: features.append(('b_w2=%s' % (b_w2), 1))
+
     # add pos features (WHAT DOES THIS DO?)
     if s_p0: features.append(('s_p0=%s' % (s_p0), 1))
+    if s_p1: features.append(('s_p1=%s' % (s_p1), 1))
+    if s_p2: features.append(('s_p2=%s' % (s_p2), 1))
 
     # add combination (WHAT DOES THIS DO?)
     if s_w0 and s_p0: features.append(('s_w0=%s s_p0=%s' % (s_w0, s_p0), 1))
@@ -375,7 +379,7 @@ if __name__ == '__main__':
 
         # reading training Treebank (assumes all parse trees are projective!)
         train_data = list(read_conll(args.train))
-    
+
         print(("# sentences: {}".format(len(train_data))))
 
         print("train parser..")
@@ -414,7 +418,7 @@ if __name__ == '__main__':
                         g = 0
                     #id  form lemma postag (ignore) features head dependencyRelation (ignore) (ignore)
                     OUT.write("{}\t{}\t{}\t{}\t_\t_\t{}\t_\t_\t_\n".format(i, word, lemma, pos, head))
-                    
+
                 OUT.write("\n")
         t2 = time.time()
 
