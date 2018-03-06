@@ -319,7 +319,7 @@ def extract_features(words, lemmas, tags, current_position_buffer, n, stack, par
     if b_l_w0: features.append(('b_l_w0=%s' % (b_l_w0), 1))
     if b_l_w1: features.append(('b_l_w1=%s' % (b_l_w1), 1))
 
-    # add left words (from stack)
+    # add right words (from buffer)
     if b_r_w0: features.append(('b_l_w0=%s' % (b_r_w0), 1))
     if b_r_w1: features.append(('b_l_w1=%s' % (b_r_w1), 1))
 
@@ -327,9 +327,25 @@ def extract_features(words, lemmas, tags, current_position_buffer, n, stack, par
     if b_l_p0: features.append(('b_l_p0=%s' % (b_l_p0), 1))
     if b_l_p1: features.append(('b_l_p1=%s' % (b_l_p1), 1))
 
-    # add left words (from stack)
+    # add right words (from buffer)
     if b_r_p0: features.append(('b_l_p0=%s' % (b_r_p0), 1))
     if b_r_p1: features.append(('b_l_p1=%s' % (b_r_p1), 1))
+
+    # add left words (from stack)
+    if s_l_w0: features.append(('s_l_w0=%s' % (s_l_w0), 1))
+    if s_l_w1: features.append(('s_l_w1=%s' % (s_l_w1), 1))
+
+    # add right words (from stack)
+    if s_r_w0: features.append(('s_l_w0=%s' % (s_r_w0), 1))
+    if s_r_w1: features.append(('s_l_w1=%s' % (s_r_w1), 1))
+
+    # add left pos features (from stack)
+    if s_l_p0: features.append(('s_l_p0=%s' % (s_l_p0), 1))
+    if s_l_p1: features.append(('s_l_p1=%s' % (s_l_p1), 1))
+
+    # add right words (from stack)
+    if s_r_p0: features.append(('s_l_p0=%s' % (s_r_p0), 1))
+    if s_r_p1: features.append(('s_l_p1=%s' % (s_r_p1), 1))
 
 
     # add combination (WHAT DOES THIS DO?)
