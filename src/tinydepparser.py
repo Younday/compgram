@@ -359,11 +359,15 @@ def extract_features(words, lemmas, tags, current_position_buffer, n, stack, par
     if s_w1 and s_p1: features.append(('s_w1=%s s_p1=%s' % (s_w1, s_p1), 1))
     if s_w2 and s_p2: features.append(('s_w2=%s s_p2=%s' % (s_w2, s_p2), 1))
 
+    if b_w1 and b_p1: features.append(('s_w1=%s s_p1=%s' % (b_w1, b_p1), 1))
+    if b_w2 and b_p2: features.append(('s_w2=%s s_p2=%s' % (b_w2, b_p2), 1))
+
     if s_w0 and b_w0: features.append(('s_w0=%s b_w0=%s' % (s_w0, b_w0), 1))
     if s_w1 and b_w1: features.append(('s_w1=%s b_w1=%s' % (s_w1, b_w1), 1))
     if s_w2 and b_w2: features.append(('s_w2=%s b_w2=%s' % (s_w2, b_w2), 1))
-    #if b_w1 and b_p1: features.append(('s_w1=%s s_p1=%s' % (b_w1, b_p1), 1))
-    #if b_w2 and b_p2: features.append(('s_w2=%s s_p2=%s' % (b_w2, b_p2), 1))
+
+    if b_l_w0 and s_l_w0: features.append(('b_l_w0=%s s_l_w0=%s' % (b_l_w0, s_l_w0), 1))
+
 
 
     # TODO: ADD MORE
