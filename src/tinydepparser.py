@@ -347,6 +347,12 @@ def extract_features(words, lemmas, tags, current_position_buffer, n, stack, par
     if s_r_p0: features.append(('s_l_p0=%s' % (s_r_p0), 1))
     if s_r_p1: features.append(('s_l_p1=%s' % (s_r_p1), 1))
 
+    if b_l_valence: features.append(('b_l_valence=%s' % (b_l_valence), 1))
+    if b_l_valence: features.append(('b_l_valence=%s' % (b_l_valence), 1))
+
+    if s_l_valence: features.append(('s_l_valence=%s' % (s_l_valence), 1))
+    if s_l_valence: features.append(('s_l_valence=%s' % (s_l_valence), 1))
+
 
     # add combination (WHAT DOES THIS DO?)
     if s_w0 and s_p0: features.append(('s_w0=%s s_p0=%s' % (s_w0, s_p0), 1))
