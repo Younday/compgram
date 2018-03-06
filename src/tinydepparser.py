@@ -303,12 +303,12 @@ def extract_features(words, lemmas, tags, current_position_buffer, n, stack, par
     # add word unigram features (from buffer)
     if b_w0: features.append(('b_w0=%s' % (b_w0), 1))
     if b_w1: features.append(('b_w1=%s' % (b_w1), 1))
-    if b_w2: features.append(('b_w2=%s' % (b_w2), 1))
+    #if b_w2: features.append(('b_w2=%s' % (b_w2), 1))
 
     # add pos features (WHAT DOES THIS DO?)
     if s_p0: features.append(('s_p0=%s' % (s_p0), 1))
     if s_p1: features.append(('s_p1=%s' % (s_p1), 1))
-    if s_p2: features.append(('s_p2=%s' % (s_p2), 1))
+    #if s_p2: features.append(('s_p2=%s' % (s_p2), 1))
 
     if b_l_w0: features.append(('b_l_w0=%s' % (b_l_w0), 1))
     if b_l_w1: features.append(('b_l_w1=%s' % (b_l_w1), 1))
