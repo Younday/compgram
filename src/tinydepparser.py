@@ -280,7 +280,7 @@ def extract_features(words, lemmas, tags, current_position_buffer, n, stack, par
     s_l_p0, s_l_p1 = get_parse_context(s0, parse.lefts, tags)
 
     s_r_w0, s_r_w1 = get_parse_context(s0, parse.rights, words)
-    s_r_p0, s_l_p1 = get_parse_context(s0, parse.rights, tags)
+    s_r_p0, s_r_p1 = get_parse_context(s0, parse.rights, tags)
 
     s_l_valence = get_parse_valency(s0, parse.lefts, words)
     s_r_valence = get_parse_valency(s0, parse.rights, words)
